@@ -1,0 +1,93 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/use2/Desktop/IC/E_ICC2018_priliminary_univ_cell
+vIRAM
+Z1 !s110 1619437051
+!i10b 1
+!s100 1iCb;;KjmRD8;6HoaTVVR3
+I[YmBoHD_c4MH7HmJFZ`g<2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1619436500
+Z4 8testfixture.v
+Z5 Ftestfixture.v
+L0 190
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1619437051.000000
+Z8 !s107 testfixture.v|LCD_CTRL.v|
+Z9 !s90 -reportprogress|300|LCD_CTRL.v|testfixture.v|
+!i113 1
+Z10 tCvgOpt 0
+n@i@r@a@m
+vIROM
+R1
+!i10b 1
+!s100 U^FgoYP[b=o=a^<875S2h2
+I>Uk66zQA9SQ<X]M3bokQE2
+R2
+R0
+R3
+R4
+R5
+L0 165
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@i@r@o@m
+vLCD_CTRL
+R1
+!i10b 1
+!s100 3^RaW]^QVa6;C1CX9YDcK2
+IjgBbHeDekkW@z9<nR:6_k0
+R2
+R0
+w1619437040
+8LCD_CTRL.v
+FLCD_CTRL.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@l@c@d_@c@t@r@l
+vtest
+R1
+!i10b 1
+!s100 `kf7d00h0oO2N[IGbRdme3
+IDO[WG7FMYbj@LQcfinDKH0
+R2
+R0
+R3
+R4
+R5
+L0 26
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10

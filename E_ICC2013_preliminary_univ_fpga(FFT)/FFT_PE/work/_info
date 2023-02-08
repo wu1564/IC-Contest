@@ -1,0 +1,93 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/use2/Desktop/IC/E_ICC2013_preliminary_univ_fpga/FFT_PE
+vAlu
+Z1 !s110 1646281104
+!i10b 1
+!s100 kT7CJW8ATa9GIY[VkCZ`n3
+IS5]DVB<leAfbLh]Mb10@W1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1646217479
+8Alu.v
+FAlu.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1646281104.000000
+Z5 !s107 testfixture0.v|FFT_PE.v|FFT_PE(with_Buffer).v|Buffer.v|Alu.v|
+Z6 !s90 -reportprogress|300|Alu.v|Buffer.v|FFT_PE(with_Buffer).v|FFT_PE.v|testfixture0.v|
+!i113 1
+Z7 tCvgOpt 0
+n@alu
+vBuffer
+R1
+!i10b 1
+!s100 AJcQ_JGkckLPjTM6PPMKF2
+IKfW51CR=AlQ8e=Zi:7fdn1
+R2
+R0
+w1646279739
+8Buffer.v
+FBuffer.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@buffer
+vFFT_PE
+R1
+!i10b 1
+!s100 1FjBhg_fgTf_XGVmK^kOF1
+I;nLTUXIRRUkKIeoNUUg@L0
+R2
+R0
+w1646281100
+8FFT_PE.v
+FFFT_PE.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@f@f@t_@p@e
+vtestfixture0
+R1
+!i10b 1
+!s100 J0h6;LT41FKJ2Q8;ICb9S0
+IRh18T;CSjP;IAClAL=Ci>2
+R2
+R0
+w1646281070
+8testfixture0.v
+Ftestfixture0.v
+L0 11
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7

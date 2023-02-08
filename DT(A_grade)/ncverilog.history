@@ -1,0 +1,2 @@
+s1(16Mar2021:06:28:58):  ncverilog testfixture.v DT.v +define+TB1+FSDB +access+r 
+s2(16Mar2021:06:31:15):  ncverilog testfixture.v DT_syn.v -v tsmc13_neg.v +define+TB1+FSDB +access+r 

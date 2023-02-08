@@ -1,0 +1,197 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/use2/Desktop/IC/E_ICC2013_preliminary_univ_fpga/FAS
+vAlu
+Z1 !s110 1646379858
+!i10b 1
+!s100 kT7CJW8ATa9GIY[VkCZ`n3
+IS5]DVB<leAfbLh]Mb10@W1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1646281291
+8Alu.v
+FAlu.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1646379858.000000
+Z5 !s107 testfixture2.v|testfixture1.v|Multiplier.v|Memory.v|FFT_PE.v|FAS.v|Compare.v|Analysis.v|Alu.v|
+Z6 !s90 -reportprogress|300|Alu.v|Analysis.v|Compare.v|FAS.v|FFT_PE.v|Memory.v|Multiplier.v|testfixture1.v|testfixture2.v|
+!i113 1
+Z7 tCvgOpt 0
+n@alu
+vAnalysis
+R1
+!i10b 1
+!s100 cWlJjlCXH;hj>d[PiZnC02
+I>OjcAFQL9iloHj=HkX<i70
+R2
+R0
+w1646378834
+8Analysis.v
+FAnalysis.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@analysis
+vCompare
+R1
+!i10b 1
+!s100 ABzKWmSA20GcjaoIB?RQC1
+IEZ9K9=L_Ion_WVd:[?iIm0
+R2
+R0
+w1646373049
+8Compare.v
+FCompare.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@compare
+vFAS
+R1
+!i10b 1
+!s100 GS0KS0;8JYbeZP0HI4m1>2
+IXC6ool_AhX>KfU1ihoX2A3
+R2
+R0
+w1646379634
+8FAS.v
+FFAS.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@f@a@s
+vFFT_PE
+R1
+!i10b 1
+!s100 802AaRZ;hm6J6AbEkcFd90
+I>C`iBGb:N1XXUQnWO=LC40
+R2
+R0
+w1646309591
+8FFT_PE.v
+FFFT_PE.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@f@f@t_@p@e
+vMemory
+R1
+!i10b 1
+!s100 @E8Q8B13P`Z6k65mIc:So2
+IkdLX2QzBK0MgiK^0HlO0F3
+R2
+R0
+w1646379379
+8Memory.v
+FMemory.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@memory
+vMultiplier
+R1
+!i10b 1
+!s100 [QZ_VI`afjf2`T9K3:IM31
+IW2VzD]cVXGYn3=Qoa7Aka2
+R2
+R0
+w1646375410
+8Multiplier.v
+FMultiplier.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@multiplier
+vtestfixture1
+R1
+!i10b 1
+!s100 kbTS=i[Ya?c]^oMl_]S4l1
+ILT8TQ4XMK1Z2C4neQNhDF2
+R2
+R0
+w1646310018
+8testfixture1.v
+Ftestfixture1.v
+Z8 L0 11
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+vtestfixture2
+R1
+!i10b 1
+!s100 U8?gFR^b44hY<bch2kEXC0
+ILc7ROjkOJakg`[n>Of4ez0
+R2
+R0
+w1363656948
+8testfixture2.v
+Ftestfixture2.v
+R8
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7

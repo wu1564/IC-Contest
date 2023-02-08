@@ -1,0 +1,246 @@
+module LCD_CTRL(clk, reset, cmd, cmd_valid, IROM_Q, IROM_rd, IROM_A, IRAM_valid, IRAM_D, IRAM_A, busy, done);
+input clk;
+input reset;
+
+input [3:0] cmd;
+input cmd_valid;
+
+input [7:0] IROM_Q; //data
+
+output IROM_rd;
+output [5:0] IROM_A; //0-63
+
+output IRAM_valid;
+output [7:0] IRAM_D;
+output [5:0] IRAM_A;
+
+output busy;
+output done; 
+
+localparam Idle = 0;
+localparam GetCmd = 1;
+localparam Process = 2;
+localparam Transmit = 3;
+localparam Finish = 4;
+//Read from IROM   ?rite to IRAM
+reg [5:0] IROM_A;
+reg IROM_rd;
+reg [7:0] IRAM_D;
+reg [5:0] IRAM_A;
+reg busy;
+
+reg [7:0] rom_data[63:0];
+reg [31:0] state;
+reg [31:0] next_state;
+reg [7:0] point[1:0];
+reg shift;
+reg changeData;
+reg [3:0] keepCmd;
+reg [7:0] MaxValue;
+reg [7:0] MinValue;
+reg [7:0] index[3:0];
+reg [2:0] counter;
+wire [7:0]ave;
+wire complete;
+assign done = (IRAM_A == 63 && !busy)? 1'b1 : 1'b0;
+assign complete = (changeData || shift) ? 1'b1 : 1'b0;
+
+always @(*) begin
+	case (state)
+	    Idle : next_state = (rom_data[63] != 0) ? GetCmd : Idle;
+	    GetCmd : next_state = (!cmd_valid) ?  GetCmd : (!cmd) ? Transmit : Process; 
+	    Process : next_state = (complete) ? GetCmd : Process;
+	    Transmit : next_state = (IRAM_A == 63) ? Finish : Transmit;
+	    Finish : next_state = (!busy) ? GetCmd : Finish;
+	    default : next_state = Idle;
+	endcase
+end
+
+always @(*) begin
+	index[0] = rom_data[point[0] - 1 + (point[1] - 1) * 8]; //upper left
+	index[1] = rom_data[point[0] + (point[1] - 1) * 8];     //upper right
+	index[2] = rom_data[point[0] + 7 + (point[1] - 1) * 8]; //under left
+	index[3] = rom_data[point[0] + 8 + (point[1] - 1) * 8]; //under right
+end
+
+always @(posedge clk or posedge reset) begin
+	if(reset) begin
+		state <= 0;
+	end else 
+		state <= next_state;
+end
+
+always @(posedge clk or posedge reset) begin
+	if(reset) begin
+		IROM_A <= 0;
+	end else
+	    IROM_A <= (IROM_A == 63) ? IROM_A : IROM_A + 1;
+end
+
+reg enable2;
+integer i;
+always @(posedge clk or posedge reset) begin
+	if(reset) begin
+		changeData <= 0;
+		enable2 <= 1;
+		for (i = 0; i <= 63; i = i + 1) begin
+			rom_data[i] <= 0;
+		end
+	end else if(state == Idle) begin
+	    rom_data[IROM_A] <= IROM_Q;
+	end else if(state == Process && enable2)begin
+		enable2 <= 0;
+		case(keepCmd) 
+			4'd5 : begin //Max
+				if(counter > 3) begin
+					rom_data[point[0] - 1 + (point[1] - 1) * 8] <= MaxValue;
+					rom_data[point[0] + (point[1] - 1) * 8] <= MaxValue;
+					rom_data[point[0] + 7 + (point[1] - 1) * 8] <= MaxValue;
+					rom_data[point[0] + 8 + (point[1] - 1) * 8] <= MaxValue;
+					changeData <= 1;
+				end
+			end
+			4'd6 : begin //Min
+				if(counter > 3) begin
+					rom_data[point[0] - 1 + (point[1] - 1) * 8] <= MinValue;
+					rom_data[point[0] + (point[1] - 1) * 8] <= MinValue;
+					rom_data[point[0] + 7 + (point[1] - 1) * 8] <= MinValue;
+					rom_data[point[0] + 8 + (point[1] - 1) * 8] <= MinValue;
+					changeData <= 1;	
+				end
+			end 
+			4'd7 :begin //Average
+				rom_data[point[0] - 1 + (point[1] - 1) * 8] <= ave;
+				rom_data[point[0] + (point[1] - 1) * 8] <= ave;
+				rom_data[point[0] + 7 + (point[1] - 1) * 8] <= ave;
+				rom_data[point[0] + 8 + (point[1] - 1) * 8] <= ave;
+				changeData <= 1;
+			end
+			4'd8 :begin //Counterclockwise Rotate
+				rom_data[point[0] - 1 + (point[1] - 1) * 8] <= index[1];
+				rom_data[point[0] + (point[1] - 1) * 8] <= index[3];
+				rom_data[point[0] + 7 + (point[1] - 1) * 8] <= index[0];
+				rom_data[point[0] + 8 + (point[1] - 1) * 8] <= index[2];
+				changeData <= 1;
+			end
+			4'd9 :begin//Clockwise
+				rom_data[point[0] - 1 + (point[1] - 1) * 8] <= index[2];
+				rom_data[point[0] + (point[1] - 1) * 8] <= index[0];
+				rom_data[point[0] + 7 + (point[1] - 1) * 8] <= index[3];
+				rom_data[point[0] + 8 + (point[1] - 1) * 8] <= index[1];
+				changeData <= 1;
+			end
+			4'd10 :begin//Mirror X
+				rom_data[point[0] - 1 + (point[1] - 1) * 8] <= index[2];
+				rom_data[point[0] + (point[1] - 1) * 8] <= index[3];
+				rom_data[point[0] + 7 + (point[1] - 1) * 8] <= index[0];
+				rom_data[point[0] + 8 + (point[1] - 1) * 8] <= index[1];
+				changeData <= 1;
+			end
+			4'd11 :begin//Mirror y
+				rom_data[point[0] - 1 + (point[1] - 1) * 8] <= index[1];
+				rom_data[point[0] + (point[1] - 1) * 8] <= index[0];
+				rom_data[point[0] + 7 + (point[1] - 1) * 8] <= index[3];
+				rom_data[point[0] + 8 + (point[1] - 1) * 8] <= index[2];
+				changeData <= 1;
+			end
+			default :  begin
+				for (i = 0; i <= 63; i = i + 1) begin
+					rom_data[i] <= rom_data[i];
+				end
+				changeData <= 0;
+			end
+		endcase
+	end	else
+	    enable2 <= 1;    
+end
+assign ave = ((index[0] + index[1] + index[2] + index[3]) / 4);
+
+
+always @(posedge clk or posedge reset) begin
+	if(reset) begin
+		IROM_rd <= 1;
+	end else if(IROM_A == 63) begin
+		IROM_rd <= 0;
+	end
+end
+
+always @(posedge clk or posedge reset) begin
+	if(reset) begin
+		busy <= 1'b1;
+	end else if(state == GetCmd) begin
+		busy <= (cmd_valid) ?  1'b1 : 1'b0;
+	end else if(state == Finish) begin
+		busy <= 1'b0;
+	end
+end
+
+assign IRAM_valid = (state == Transmit) ? 1'b1 : 1'b0;
+always @(posedge clk or posedge reset) begin
+	if(reset) begin
+		IRAM_D <= 0;
+		IRAM_A <= 0;
+	end else if(state == Transmit) begin
+	    IRAM_A <= (IRAM_A == 63) ? IRAM_A : IRAM_A + 1;
+	    IRAM_D <= rom_data[IRAM_A + 1];
+	end else
+	    IRAM_D <= rom_data[0];
+end
+
+always @(posedge clk) begin
+    if(cmd_valid && state == GetCmd) begin
+    	keepCmd <= cmd;
+    end
+end
+
+reg enable;
+always @(posedge clk or posedge reset) begin
+    if(reset) begin
+    	point[0] <= 4; //x
+    	point[1] <= 4; //y
+    	shift <= 0;
+    	enable <= 1;
+    end else if(state == Process && enable) begin
+    	enable <= 0;
+    	shift <= (keepCmd == 1 || keepCmd == 2 || keepCmd == 3 || keepCmd == 4) ? 1 : 0;
+    	case(keepCmd) 
+    	 	4'd1 : point[1] <= (point[1] != 1) ? point[1] - 1 : point[1]; //up
+    		4'd2 : point[1] <= (point[1] != 7) ? point[1] + 1 : point[1]; //down
+    		4'd3 : point[0] <= (point[0] != 1) ? point[0] - 1 : point[0]; //left
+    		4'd4 : point[0] <= (point[0] != 7) ? point[0] + 1 : point[0]; //right
+    		default : begin
+    			point[0] = point[0];
+    			point[1] = point[1];
+    		end
+    	endcase
+    end else begin
+        shift <= 0;
+        enable <= 1;
+     end
+end
+	
+always @(posedge clk or reset) begin
+	if(reset) begin
+		MaxValue <= index[counter];
+		MinValue <= index[counter];
+	end else if(state == Process && (keepCmd == 5 || keepCmd == 6) && counter < 3) begin
+		if(MaxValue < index[counter + 1]) begin
+		    MaxValue <= index[counter + 1];
+		end 
+		if(MinValue > index[counter + 1]) begin
+			MinValue <= index[counter + 1];
+		end
+	end else if(!counter) begin
+	    MaxValue <= index[counter];
+		MinValue <= index[counter];
+	end
+end
+
+always @(posedge clk) begin
+	if(reset || state != Process) begin
+		counter <= 0;
+	end else
+	    counter <= counter + 1;
+end
+
+endmodule

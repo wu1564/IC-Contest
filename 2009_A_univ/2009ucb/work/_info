@@ -1,0 +1,117 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/use2/Desktop/IC/2009_A_univ/2009ucb
+vBUFFER
+Z1 !s110 1643092766
+!i10b 1
+!s100 7foCRBQ_aZXD<kT8M=llS0
+IPCzAJ[EbZl1AccZCgTkWJ2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1642665395
+Z4 8./flash_u.v
+Z5 F./flash_u.v
+L0 1626
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1643092766.000000
+Z8 !s107 ./flash_u.v|./t13rf128x8.v|FC.v|testfixture.v|
+Z9 !s90 -reportprogress|300|testfixture.v|FC.v|+define+tb2|
+!i113 1
+Z10 !s92 +define+tb2
+Z11 tCvgOpt 0
+n@b@u@f@f@e@r
+vFC
+R1
+!i10b 1
+!s100 Qj3mkAHDD2i<mbz380F7g1
+I`F>zPeM2[[Rn_KXDY<ciA1
+R2
+R0
+w1643092751
+8FC.v
+FFC.v
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@f@c
+vflash
+R1
+!i10b 1
+!s100 TdH^AebZ0odS>GnAOzjnJ3
+I?ULBK=Y03]4_?M1d4W]7D3
+R2
+R0
+R3
+R4
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vt13rf128x8
+R1
+!i10b 1
+!s100 Y9QSDKC5gBjj04I4YG`9z1
+IVS`KmNBoY<I]GggCf3:T@0
+R2
+R0
+w1236922174
+8./t13rf128x8.v
+F./t13rf128x8.v
+L0 55
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vtest
+R1
+!i10b 1
+!s100 G53SB7mLkgfBffC<UfOiB0
+I?8L@oLK0UfUbm8OBXm_YZ1
+R2
+R0
+w1643019986
+8testfixture.v
+Ftestfixture.v
+L0 20
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11

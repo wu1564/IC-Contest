@@ -1,0 +1,71 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/use2/Desktop/IC/B_ICC2016_preliminary_grad_cell-based
+vLBP
+Z0 !s110 1645086354
+!i10b 1
+!s100 VkbZK[3lE8fJkN]F5]V`e2
+IUbSTALjnHHk8PMkcjSZ;o0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/use2/Desktop/IC/Finish/B_ICC2016_preliminary_grad_cell-based
+w1645086347
+8LBP.v
+FLBP.v
+L0 3
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1645086354.000000
+Z5 !s107 LBP.v|testfixture.v|
+Z6 !s90 -reportprogress|300|testfixture.v|LBP.v|
+!i113 1
+Z7 tCvgOpt 0
+n@l@b@p
+vlbp_mem
+R0
+!i10b 1
+!s100 hzn;9L7_jdf`C?WKg?;el3
+IhKgz93NfV7?DVMRHgM65X0
+R1
+R2
+Z8 w1645000766
+Z9 8testfixture.v
+Z10 Ftestfixture.v
+L0 134
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+vtestfixture
+R0
+!i10b 1
+!s100 ]Dnen[96ALS_:N9;fPz[>0
+I:S6aDT?D]>ah>U>Ok9W4?0
+R1
+R2
+R8
+R9
+R10
+L0 10
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7

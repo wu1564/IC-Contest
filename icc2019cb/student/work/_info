@@ -1,0 +1,112 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/use2/Desktop/IC/contest/Finish/icc2019cb/student
+vasin_rom
+Z1 !s110 1661668231
+!i10b 1
+!s100 EDh:ROaPhc^>:P5h_lBYX2
+IhJ[Zbc:E4gIdnjoc[8F`j1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1661271937
+Z4 8testbench.v
+Z5 Ftestbench.v
+L0 185
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1661668231.000000
+Z8 !s107 testbench.v|GPSDC.v|
+Z9 !s90 -reportprogress|300|GPSDC.v|testbench.v|
+!i113 1
+Z10 tCvgOpt 0
+vcos_rom
+R1
+!i10b 1
+!s100 BYbI8EQc]V5LoK86<93B52
+I[_<WbN=4Hc:cL`jmE3F``0
+R2
+R0
+R3
+R4
+R5
+L0 263
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+vGPSDC
+R1
+!i10b 1
+!s100 4Ce8lLAkh?6`JbANKLWi60
+I;;cI^?Vn[jlh;=Yg=eP7i3
+R2
+R0
+w1661509690
+Z11 8GPSDC.v
+Z12 FGPSDC.v
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@g@p@s@d@c
+vGPSDC_
+!s110 1661509634
+!i10b 1
+!s100 di5=JEDlM^mzVJE[87@hf0
+I23RR:=02j@mT[Y7oITPoh0
+R2
+R0
+w1656066341
+R11
+R12
+L0 2
+R6
+r1
+!s85 0
+31
+!s108 1661509634.000000
+R8
+R9
+!i113 1
+R10
+n@g@p@s@d@c_
+vtest
+R1
+!i10b 1
+!s100 n6;=bocDh7GlMUHO>Z21@0
+IzeA52`SXJCXNWeZA<Rdob3
+R2
+R0
+R3
+R4
+R5
+L0 11
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10

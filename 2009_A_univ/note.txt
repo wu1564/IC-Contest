@@ -1,0 +1,4 @@
+clock   -> 10ns
+clock/2 -> 5ns
+
+

@@ -1,0 +1,11 @@
+ncverilog: 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s086: Started on Mar 16, 2021 at 06:31:15 EDT
+ncverilog
+	testfixture.v
+	DT_syn.v
+	-v
+	tsmc13_neg.v
+	+define+TB1+FSDB
+	+access+r
+ncverilog: *E,FILEMIS: Cannot find the provided file DT_syn.v.
+TOOL:	ncverilog	15.20-s086: Exiting on Mar 16, 2021 at 06:31:15 EDT  (total: 00:00:00)

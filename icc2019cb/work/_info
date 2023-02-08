@@ -1,0 +1,133 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/use2/Desktop/IC/contest/Finish/icc2019cb
+vasin_rom
+Z1 !s110 1662714078
+!i10b 1
+!s100 EDh:ROaPhc^>:P5h_lBYX2
+IhJ[Zbc:E4gIdnjoc[8F`j1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1661271937
+Z4 8testbench.v
+Z5 Ftestbench.v
+L0 185
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1662714078.000000
+Z8 !s107 羅會杰版本GPSDC.v|testbench.v|GPSDC.v|
+Z9 !s90 -reportprogress|300|GPSDC.v|testbench.v|羅會杰版本GPSDC.v|
+!i113 1
+Z10 tCvgOpt 0
+vcos_rom
+R1
+!i10b 1
+!s100 BYbI8EQc]V5LoK86<93B52
+I[_<WbN=4Hc:cL`jmE3F``0
+R2
+R0
+R3
+R4
+R5
+L0 263
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+vGPSDC
+R1
+!i10b 1
+!s100 ;h^Q6VJLneARm]hBO?o<:2
+IAgHJef7c^n=X34;zjIA>n2
+R2
+R0
+w1661751349
+8GPSDC.v
+FGPSDC.v
+L0 5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@g@p@s@d@c
+vGPSDC_
+R1
+!i10b 1
+!s100 di5=JEDlM^mzVJE[87@hf0
+IghkjcG9LWD[hNgY0N?NDP0
+R2
+R0
+w1656066341
+8羅會杰版本GPSDC.v
+F羅會杰版本GPSDC.v
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@g@p@s@d@c_
+vGPSDC_temp
+!s110 1661660359
+!i10b 1
+!s100 ^G[H`TIgoTPPl_=1M]5HG0
+IU?V4Io2ik76J0LSFF]8z71
+R2
+R0
+w1661660357
+8temp.v
+Ftemp.v
+L0 5
+R6
+r1
+!s85 0
+31
+!s108 1661660359.000000
+!s107 羅會杰版本GPSDC.v|testbench.v|temp.v|GPSDC.v|
+!s90 -reportprogress|300|GPSDC.v|temp.v|testbench.v|羅會杰版本GPSDC.v|
+!i113 1
+R10
+n@g@p@s@d@c_temp
+vtest
+R1
+!i10b 1
+!s100 n6;=bocDh7GlMUHO>Z21@0
+IzeA52`SXJCXNWeZA<Rdob3
+R2
+R0
+R3
+R4
+R5
+L0 11
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10

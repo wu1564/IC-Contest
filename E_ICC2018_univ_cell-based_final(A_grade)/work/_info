@@ -1,0 +1,51 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/use2/Desktop/IC/E_ICC2018_univ_cell-based_final
+vtestfixture
+Z1 !s110 1646961294
+!i10b 1
+!s100 @J:Q9@RLz4i`Qgim>38RP2
+IL728WBacbgD5HKo`JoHmU3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1646918233
+8testbench.v
+Ftestbench.v
+L0 8
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1646961294.000000
+Z5 !s107 TPA.v|testbench.v|
+Z6 !s90 -reportprogress|300|testbench.v|TPA.v|
+!i113 1
+Z7 tCvgOpt 0
+vTPA
+R1
+!i10b 1
+!s100 <ZV`kam8[mCPGJ]4hFS503
+I``A976C;Q@[@N3nbEMfbz0
+R2
+R0
+w1646921175
+8TPA.v
+FTPA.v
+L0 4
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@t@p@a

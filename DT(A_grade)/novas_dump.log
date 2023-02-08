@@ -1,0 +1,187 @@
+ncsim 15.20-s086
+Linux 3.10.0-1160.15.2.el7.x86_64 #1 SMP Thu Jan 21 16:15:07 EST 2021 x86_64
+CPU cores: 32
+Limit information:
+======================================
+cputime			unlimited
+filesize		unlimited
+datasize		unlimited
+stacksize		8192 kbytes
+coredumpsize	0 kbytes
+memoryuse		unlimited
+vmemoryuse		unlimited
+descriptors		4096
+memorylocked	64 kbytes
+maxproc			4096
+======================================
+(Special)Runtime environment variables:
+
+Runtime environment variables:
+USER=wtwu
+LOGNAME=wtwu
+HOME=/home/wtwu
+PATH=/opt/riscv/bin:/usr/cad/synopsys/icc/cur/amd64/syn/bin:/usr/cad/cadence/INCISIVE152/tools/bin:/usr/cad/cadence/INCISIVE152/tools/vtools/vfault/bin:/usr/cad/cadence/INCISIVE152/tools/dfII/bin:/usr/cad/synopsys/verdi/cur/bin:/usr/cad/synopsys/verdi/cur/nLint/bin:/usr/bin/X11:/usr/cad/synopsys/coreConsultant/cur/bin:/usr/cad/synopsys/synthesis/cur/amd64/syn/bin:/usr/cad/synopsys/lc/cur/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+MAIL=/var/spool/mail/wtwu
+SHELL=/bin/csh
+SSH_CLIENT=140.118.114.92 51038 22
+SSH_CONNECTION=140.118.114.92 51038 140.118.2.126 22
+SSH_TTY=/dev/pts/3
+TERM=xterm
+DISPLAY=localhost:12.0
+SELINUX_ROLE_REQUESTED=
+SELINUX_LEVEL_REQUESTED=
+SELINUX_USE_CURRENT_RANGE=
+XDG_SESSION_ID=718
+XDG_RUNTIME_DIR=/run/user/1005
+HOSTTYPE=x86_64-linux
+VENDOR=unknown
+OSTYPE=linux
+MACHTYPE=x86_64
+SHLVL=1
+PWD=/home/wtwu/DT
+GROUP=wtwu
+HOST=ib703-ip126.et.ntust.edu.tw
+REMOTEHOST=ip114-92.IB.ntust.edu.tw
+QT_X11_NO_MITSHM=1
+HOSTNAME=ib703-ip126.et.ntust.edu.tw
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:
+CVS_RSH=ssh
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+LANG=en_US.UTF-8
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+QT_GRAPHICSSYSTEM_CHECKED=1
+QTDIR=/usr/lib64/qt-3.3
+QTINC=/usr/lib64/qt-3.3/include
+QTLIB=/usr/lib64/qt-3.3/lib
+SNPSLMD_LICENSE_FILE=26585@lsntu.ee.ntu.edu.tw:26585@lscic.cic.org.tw
+SYNTHESIS=/usr/cad/synopsys/synthesis/cur
+SYN_MAN_DIR=/usr/cad/synopsys/synthesis/cur/doc/syn/man
+MANPATH=/usr/cad/synopsys/synthesis/cur/doc/syn/man
+LD_LIBRARY_PATH=/usr/cad/cadence/INCISIVE152/tools/lib:/usr/cad/cadence/INCISIVE152/tools/vtools/vfault/lib::/usr/cad/synopsys/verdi/cur/share/PLI/IUS/LINUX
+SHLIB_PATH=/usr/cad/synopsys/verdi/cur/share/PLI/IUS/LINUX
+CDS_LIC_FILE=5280@lsntu.ee.ntu.edu.tw:5280@lscic.cic.org.tw
+SYNOPSYS=/usr/cad/synopsys/icc/cur
+RISCV=/opt/riscv
+_IRUNROOT_=/usr/cad/cadence/INCISIVE152/tools
+CDS_ARCH=lnx86
+NCRUNMODE=ncverilog:./INCA_libs/irun.lnx86.15.20.nc
+IRUNBATCH=FALSE
+IMPERAS_PORT_FILE=.vsp_ovp_gdb_port
+TCL_LIBRARY=/usr/cad/cadence/INCISIVE152/tools/inca/files/tcl/library
+Runtime command line arguments:
+argv[0]=ncverilog
+argv[1]=testfixture.v
+argv[2]=DT.v
+argv[3]=+define+TB1+FSDB
+argv[4]=+access+r
+76 profile - 100
+          CPU/Mem usage: 0.020 sys,  0.020 user,  62.83M sys,  0.00M vm
+77 VC callback profile - scalar:0 vector:0
+78 Tue Mar 16 06:28:59 2021
+79 pliAppInit
+80 FSDB_GATE is disabled.
+81 Enable Parallel Dumping.
+82 pliAppMiscSet: New Sim Round
+83 pliEntryInit
+84 LIBSSCORE=found /usr/cad/synopsys/verdi/cur/share/PLI/IUS/LINUX/libsscore_ius152.so through $LD_LIBRARY_PATH setting.
+85 argv[0]: DT.fsdb
+86 argv[0]: (handle)0xb02c690 testfixture.u_sti_ROM.sti_M
+87 argv[0]: (handle)0xb02c690 testfixture.u_res_RAM.res_M
+88 FSDB Dumper for IUS, Release Verdi_R-2020.12, Linux, 11/19/2020
+89 (C) 1996 - 2020 by Synopsys, Inc.
+90 sps_call_fsdbDumpfile at 0 : /home/wtwu/DT/testfixture.v(70)
+91 argv[0]: DT.fsdb
+92 *Verdi* : Create FSDB file 'DT.fsdb'
+93 sps_call_fsdbDumpvars at 0 : /home/wtwu/DT/testfixture.v(71)
+94 *Verdi* : Begin traversing the scopes, layer (0).
+95 *Verdi* : End of traversing.
+96 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.030 sys,  0.030 user,  145.34M sys,  0.00M vm
+                   incr: 0.010 sys,  0.000 user,  3.52M sys,  0.00M vm
+                   accu: 0.010 sys,  0.000 user,  3.52M sys,  0.00M vm
+              accu incr: 0.010 sys,  0.000 user,  3.52M sys,  0.00M vm
+
+          Count usage: 53 var,  42 idcode,  42 callback
+                 incr: 53 var,  42 idcode,  42 callback
+                 accu: 53 var,  42 idcode,  42 callback
+            accu incr: 53 var,  42 idcode,  42 callback
+97 VC callback profile - scalar:0 vector:0
+98 Tue Mar 16 06:28:59 2021
+99 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.030 sys,  0.030 user,  146.39M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
+                   accu: 0.010 sys,  0.000 user,  4.57M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
+
+          Count usage: 53 var,  42 idcode,  42 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 53 var,  42 idcode,  42 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+100 VC callback profile - scalar:18 vector:24
+101 Tue Mar 16 06:28:59 2021
+102 sps_call_fsdbDumpMDA at 0 : /home/wtwu/DT/testfixture.v(72)
+103 argv[0]: (handle)0xb02c690 testfixture.u_sti_ROM.sti_M
+104 *Verdi* : Dumping the MDA (testfixture.u_sti_ROM.sti_M).
+105 fsdbDumpMDA traverse var: profile - 
+          CPU/Mem usage: 0.030 sys,  0.030 user,  146.39M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 1077 var,  1066 idcode,  1067 callback
+                 incr: 1024 var,  1024 idcode,  1025 callback
+                 accu: 1024 var,  1024 idcode,  1025 callback
+            accu incr: 1024 var,  1024 idcode,  1025 callback
+106 VC callback profile - scalar:18 vector:24
+107 Tue Mar 16 06:28:59 2021
+108 fsdbDumpMDA: profile - 
+          CPU/Mem usage: 0.030 sys,  0.030 user,  146.39M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 1077 var,  1066 idcode,  1067 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1024 var,  1024 idcode,  1025 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+109 VC callback profile - scalar:18 vector:1048
+110 Tue Mar 16 06:28:59 2021
+111 sps_call_fsdbDumpMDA at 0 : /home/wtwu/DT/testfixture.v(73)
+112 argv[0]: (handle)0xb02c698 testfixture.u_res_RAM.res_M
+113 *Verdi* : Dumping the MDA (testfixture.u_res_RAM.res_M).
+114 fsdbDumpMDA traverse var: profile - 
+          CPU/Mem usage: 0.030 sys,  0.080 user,  147.55M sys,  0.00M vm
+                   incr: 0.000 sys,  0.050 user,  1.16M sys,  0.00M vm
+                   accu: 0.000 sys,  0.050 user,  1.16M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.050 user,  1.16M sys,  0.00M vm
+
+          Count usage: 17461 var,  17450 idcode,  17452 callback
+                 incr: 16384 var,  16384 idcode,  16385 callback
+                 accu: 16384 var,  16384 idcode,  16385 callback
+            accu incr: 16384 var,  16384 idcode,  16385 callback
+115 VC callback profile - scalar:18 vector:1048
+116 Tue Mar 16 06:28:59 2021
+117 fsdbDumpMDA: profile - 
+          CPU/Mem usage: 0.030 sys,  0.090 user,  147.96M sys,  0.00M vm
+                   incr: 0.000 sys,  0.010 user,  0.41M sys,  0.00M vm
+                   accu: 0.000 sys,  0.060 user,  1.57M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.010 user,  0.41M sys,  0.00M vm
+
+          Count usage: 17461 var,  17450 idcode,  17452 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 16384 var,  16384 idcode,  16385 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+118 VC callback profile - scalar:18 vector:17432
+119 Tue Mar 16 06:28:59 2021
+120 End of simulation at 114295933
+121 VC callback profile - scalar:574402 vector:556839
+122 Tue Mar 16 06:28:59 2021
+123 Begin FSDB profile info:
+124 FSDB Writer : bc1(574402) bcn(556839) mtf/stf(0/0)
+FSDB Writer elapsed time : flush(0.075064) io wait(0.000000) theadpool wait(0.000000)
+FSDB Writer cpu time : MT Compression : 0
+125 End FSDB profile info
+126 Parallel profile    -  Flush:5 Expand:0 ProduceWait:0 ConsumerWait:0 BlockUsed:8
+127                        ProduceTime:0.360095063 ConsumerTime:0.148075901 Buffer:64MB
+128 SimExit
+129 Sim process exit

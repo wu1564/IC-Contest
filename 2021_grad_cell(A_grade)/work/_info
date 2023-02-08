@@ -1,0 +1,53 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/use2/Desktop/IC/2021_grad_cell
+vgeofence
+!s110 1648273554
+!i10b 1
+!s100 1YZWo?i7X9T9C7O7cDKWL2
+IM66zPbDUCTb2HUl^22ezY2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+dC:/Users/use2/Desktop/IC/Finish/2021_grad_cell(A_grade)
+w1648273551
+8geofence.v
+Fgeofence.v
+L0 1
+Z2 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1648273553.000000
+!s107 geofence.v|
+!s90 -reportprogress|300|geofence.v|
+!i113 1
+Z3 tCvgOpt 0
+vtestfixture
+DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+!s110 1647521404
+!i10b 1
+!s100 gFzWo1dTN`?@Uo@zK>4[N1
+ICL92FKiV6XSYD8TDQG>L71
+R1
+!s105 tb_sv_unit
+S1
+R0
+w1615958974
+8tb.sv
+Ftb.sv
+L0 7
+R2
+r1
+!s85 0
+31
+!s108 1647521404.000000
+!s107 geofence.v|tb.sv|
+!s90 -reportprogress|300|tb.sv|geofence.v|
+!i113 1
+R3

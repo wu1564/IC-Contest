@@ -1,0 +1,51 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/use2/Desktop/IC/RTL_univ_Exercise
+vSTI_DAC
+Z0 !s110 1648214046
+!i10b 1
+!s100 5<k?;@`;hO7J6Qj4`>3_X1
+I3YoeNKC4mYG^N<fNn12J93
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/use2/Desktop/IC/Finish/RTL_univ_Exercise
+w1648214041
+8STI_DAC.v
+FSTI_DAC.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1648214046.000000
+Z5 !s107 testfixture.v|STI_DAC.v|
+Z6 !s90 -reportprogress|300|STI_DAC.v|testfixture.v|
+!i113 1
+Z7 tCvgOpt 0
+n@s@t@i_@d@a@c
+vtestfixture
+R0
+!i10b 1
+!s100 C3[UG>14Gl<2M3_:5:zOj3
+IHo1OSBJhIH8kUJGJ5n6z`3
+R1
+R2
+w1647322524
+8testfixture.v
+Ftestfixture.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7

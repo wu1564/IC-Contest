@@ -1,0 +1,56 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/use2/Desktop/IC/contest/2022_univ_cell
+vJAM
+Z1 !s110 1648625156
+!i10b 1
+!s100 eWIO3BaQAMj7<@@oiT=]02
+I3k>NS?9>BJ_S_aM4Tn;>M1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1648625115
+8JAM.v
+FJAM.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1648625156.000000
+Z5 !s107 JAM.v|tb.sv|
+Z6 !s90 -reportprogress|300|tb.sv|JAM.v|+define+P3|
+!i113 1
+Z7 !s92 +define+P3
+Z8 tCvgOpt 0
+n@j@a@m
+vtestfixture
+DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+R1
+!i10b 1
+!s100 ELee;k8bOZCc1mD`SD0Q;1
+I?:7N6YGn^Pb9NZF?=zB?C2
+R2
+!s105 tb_sv_unit
+S1
+R0
+w1648458130
+8tb.sv
+Ftb.sv
+L0 18
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+R8

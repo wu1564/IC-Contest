@@ -1,0 +1,3 @@
+Command Line: /usr/cad/synopsys/verdi/cur/platform/LINUXAMD64/bin/Novas -nWave
+uname(Linux ib703-ip126.et.ntust.edu.tw 3.10.0-1160.15.2.el7.x86_64 #1 SMP Thu Jan 21 16:15:07 EST 2021 x86_64)
+au time 93.361901 2.837274 1.249517 delta 357535744 357535744 total 836882432 836882432

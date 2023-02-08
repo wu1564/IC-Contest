@@ -1,0 +1,18 @@
+#######################################################################################
+# fsdb.xxxxx.log : log primitive debug message of FSDB Reader
+# This is for R&D to analyze when there are issues happening when FSDB reading
+# The corresponding FSDB file is /home/wtwu/DT/DT.fsdb
+#######################################################################################
+[BASIC]Reader version : ncsim 15.20-s086
+[BASIC]simulator version : ncsim 15.20-s086
+[BASIC]dumper version : FSDB Dumper for IUS, Release Verdi_R-2020.12, Linux, 11/19/2020
+[CORECOUNT]VerdiAffinityFindCpuSet  Core count : 32 
+[THREAD]The MTR thread count is 16
+[READSCOPE]ReadScopeTree calling time is 1
+[READSCOPE]ReadScope_PartialLoad calling time is 0
+[READSCOPE]Scope read by partial load count is 0
+[READSCOPE]Scope read count is 8
+[READSCOPE]Decompressed blk is 3
+[FSDBGate Info] start
+[FSDBGate Info] Total fhdb_compute_count = 0
+[FSDBGate Info] end

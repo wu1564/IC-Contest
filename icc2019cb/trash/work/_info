@@ -1,0 +1,216 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/use2/Desktop/IC/contest/Finish/icc2019cb/trash
+vAlu
+Z1 !s110 1661658672
+!i10b 1
+!s100 haJ^g4G^QYf6nzoJGlWfM0
+Il6o]IPES_dnb48b1d=XBe0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1650431223
+8Alu.v
+FAlu.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1661658672.000000
+Z5 !s107 validation.v|testbench.v|interpolationTemp.v|Substract.v|Multiplier.v|Interpolation.v|GPSDC_trash.v|Alu.v|
+Z6 !s90 -reportprogress|300|Alu.v|GPSDC_trash.v|Interpolation.v|Multiplier.v|Substract.v|interpolationTemp.v|testbench.v|validation.v|
+!i113 1
+Z7 tCvgOpt 0
+n@alu
+vasin_rom
+R1
+!i10b 1
+!s100 EDh:ROaPhc^>:P5h_lBYX2
+IhJ[Zbc:E4gIdnjoc[8F`j1
+R2
+R0
+Z8 w1661271937
+Z9 8testbench.v
+Z10 Ftestbench.v
+L0 185
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+vcos_rom
+R1
+!i10b 1
+!s100 BYbI8EQc]V5LoK86<93B52
+I[_<WbN=4Hc:cL`jmE3F``0
+R2
+R0
+R8
+R9
+R10
+L0 263
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+vGPSDC
+R1
+!i10b 1
+!s100 d^H?llHO2]JOAGA8PJGQF1
+Ik]Fbo<hVDl>?FbUcgJj]81
+R2
+R0
+w1661658670
+8GPSDC_trash.v
+FGPSDC_trash.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@g@p@s@d@c
+vInterpolation
+R1
+!i10b 1
+!s100 4<:gNCA_=b>@=l2ZGBfR@0
+IWbiHb9?YYPVXSgJAZW@WK3
+R2
+R0
+w1650454253
+8Interpolation.v
+FInterpolation.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@interpolation
+vInterpolation_usingSymbol
+R1
+!i10b 1
+!s100 OD^QO0E`eh8k0T;lA?X051
+IoREe34Um_iT[DAZQ[T`o63
+R2
+R0
+w1661505983
+8interpolationTemp.v
+FinterpolationTemp.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@interpolation_using@symbol
+vMultiplier
+R1
+!i10b 1
+!s100 2MA>eiNRA::K^_j=WP:;z2
+I;QLEE^Z[NBV[HkJX655c52
+R2
+R0
+w1650009599
+8Multiplier.v
+FMultiplier.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@multiplier
+vSubstract
+R1
+!i10b 1
+!s100 c]jVjK[^i0MaTO6T9>21U2
+IZFiRHj^zP4Y]4>H::[I0k0
+R2
+R0
+w1646642128
+8Substract.v
+FSubstract.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@substract
+vtest
+R1
+!i10b 1
+!s100 n6;=bocDh7GlMUHO>Z21@0
+IzeA52`SXJCXNWeZA<Rdob3
+R2
+R0
+R8
+R9
+R10
+L0 11
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+vvalidation
+R1
+!i10b 1
+!s100 6?D6e@QJ^F>=a:oLck7g^3
+I=P_j6l^V@_0aRVTYdGzX<2
+R2
+R0
+w1661509990
+8validation.v
+Fvalidation.v
+L0 5
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7

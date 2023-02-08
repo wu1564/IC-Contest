@@ -1,0 +1,305 @@
+module huffman(clk, reset, gray_valid, CNT_valid, CNT1, CNT2, CNT3, CNT4, CNT5, CNT6,
+    code_valid, HC1, HC2, HC3, HC4, HC5, HC6, gray_data, M1, M2, M3, M4, M5, M6);
+
+input clk;
+input reset;
+input gray_valid;
+input [7:0] gray_data;
+output CNT_valid;
+output [7:0] CNT1, CNT2, CNT3, CNT4, CNT5, CNT6;
+output code_valid;
+output [7:0] HC1, HC2, HC3, HC4, HC5, HC6;
+output [7:0] M1, M2, M3, M4, M5, M6;
+
+localparam Idle = 0,
+           OuputCnt = 1,
+           Order = 2,
+           C0 = 3,
+           C1 = 4,
+           C2 = 5,
+           C3 = 6,
+           C4 = 7,
+           Finish = 8,
+           OutputCode = 9;
+
+reg CNT_valid, code_valid;
+reg [7:0] CNT1, CNT2, CNT3, CNT4, CNT5, CNT6,
+          HC1, HC2, HC3, HC4, HC5, HC6,
+          M1, M2, M3, M4, M5, M6;
+reg [2:0] index_cnt, order_cnt, max_index, ordered_index[0:5];
+reg [3:0] state, next_state;
+reg [7:0] index[0:5], ordered_value[0:5], max_value; // 1-6 data 
+reg [5:0] record[0:4];
+reg cycle_cnt;
+wire larger;
+
+always @(*) begin	
+	case(state) 
+		Idle : next_state <= (!gray_valid && CNT6 > 0) ? OuputCnt : Idle;
+		OuputCnt : next_state <= Order;
+        Order : next_state <= (index_cnt == 6 && order_cnt == 0) ? C0 : Order;
+        C0 : next_state <= (cycle_cnt) ? C1 : C0;
+        C1 : next_state <= (cycle_cnt) ? C2 : C1;
+        C2 : next_state <= (cycle_cnt) ? C3 : C2;
+        C3 : next_state <= (cycle_cnt) ? C4 : C3;
+        C4 : next_state <= (cycle_cnt) ? Finish : C4;
+        Finish : next_state <= (cycle_cnt) ? OutputCode : Finish;
+        OutputCode : next_state <= Idle;
+		default : next_state <= next_state;
+	endcase
+end
+
+always @(*) begin
+	index[0] = CNT1; index[1] = CNT2; index[2] = CNT3; 
+	index[3] = CNT4; index[4] = CNT5; index[5] = CNT6;
+end
+
+always @(posedge clk or posedge reset) begin
+    if(reset) begin	
+    	state <= Idle;
+    end else
+        state <= next_state;
+end
+
+always @(posedge clk or posedge reset) begin
+    if(reset) begin	
+    	CNT_valid <= 1'b0;
+    end else if(state == OuputCnt) begin	
+    	CNT_valid <= 1'b1;
+    end else
+        CNT_valid <= 1'b0;
+end
+
+always @(posedge clk or posedge reset) begin
+    if(reset) begin
+    	CNT1 <= 0; CNT2 <= 0; CNT3 <= 0; 
+    	CNT4 <= 0; CNT5 <= 0; CNT6 <= 0;
+    end else if(gray_valid) begin
+    	case (gray_data)
+    	    8'd1 : CNT1 <= CNT1 + 1;
+    	    8'd2 : CNT2 <= CNT2 + 1;
+    	    8'd3 : CNT3 <= CNT3 + 1;
+    	    8'd4 : CNT4 <= CNT4 + 1;
+    	    8'd5 : CNT5 <= CNT5 + 1;
+    	    8'd6 : CNT6 <= CNT6 + 1;
+    	    default : begin
+    	    	CNT1 <= CNT1; CNT2 <= CNT2; CNT3 <= CNT3;
+    			CNT4 <= CNT4; CNT5 <= CNT5; CNT6 <= CNT6;
+    	    end
+    	endcase
+    end else if(state == Order && index_cnt == 6) begin
+    	case (max_index)
+    		3'd0 : CNT1 <= 0;
+    		3'd1 : CNT2 <= 0;
+    		3'd2 : CNT3 <= 0;
+    		3'd3 : CNT4 <= 0;
+    		3'd4 : CNT5 <= 0;
+    		3'd5 : CNT6 <= 0;
+    		default : begin
+                CNT1 <= CNT1; CNT2 <= CNT2; CNT3 <= CNT3;
+                CNT4 <= CNT4; CNT5 <= CNT5; CNT6 <= CNT6;
+    		end
+    	endcase
+    end
+end
+
+always @(posedge clk or posedge reset) begin
+    if(reset) begin	
+    	index_cnt <= 0;
+    	order_cnt <= 5;
+    end else if(state == Order) begin
+    	index_cnt <= (index_cnt == 6) ? 0 : index_cnt + 1;
+    	order_cnt <= (index_cnt == 6) ? order_cnt - 1 : order_cnt;
+    end else begin
+        index_cnt <= 0;
+        order_cnt <= 5;
+    end
+end
+
+assign larger = (index_cnt > 5) ? 0 : (max_value < index[index_cnt]) ? 1'b1 : 1'b0;
+always @(posedge clk or posedge reset) begin
+	if(reset) begin	
+		max_value <= 0;
+		max_index <= 0;
+	end else if(index_cnt <= 5) begin //index[0-5] == CNT1-CNT6  
+		max_value <= (larger) ? index[index_cnt] : max_value;
+		max_index <= (larger) ? index_cnt: max_index;
+	end else begin
+		max_value <= 0;
+		max_index <= 0;
+	end
+end
+
+reg [2:0] counter;
+always @(posedge clk or posedge reset) begin
+	if(reset) begin
+		counter <= 0;
+		ordered_value[0] <= 0; ordered_value[1] <= 0; ordered_value[2] <= 0;
+		ordered_value[3] <= 0; ordered_value[4] <= 0; ordered_value[5] <= 0;
+		ordered_index[0] <= 0; ordered_index[1] <= 0; ordered_index[2] <= 0; 
+		ordered_index[3] <= 0; ordered_index[4] <= 0; ordered_index[5] <= 0; 
+	end else if(state == Order && index_cnt == 6) begin
+	    ordered_value[order_cnt] <= max_value;
+	    ordered_index[order_cnt] <= max_index;
+	end else if(state > C0) begin //C1-C4
+		case(cycle_cnt)
+			0 : begin // add
+                counter <= counter + 1;
+                ordered_value[counter + 1] <= ordered_value[counter] + ordered_value[counter + 1];
+			end
+		    1 : begin // Re-order
+				if(ordered_value[counter + 2] < ordered_value[counter] && counter < 4) begin
+                    ordered_value[counter] <= ordered_value[counter + 1];
+                    ordered_value[counter + 1] <= ordered_value[counter + 2];
+                    ordered_value[counter + 2] <= ordered_value[counter];
+				end else if(ordered_value[counter + 1] < ordered_value[counter] && counter < 5) begin
+					ordered_value[counter] <= ordered_value[counter + 1];
+					ordered_value[counter + 1] <= ordered_value[counter];
+				end
+			end
+		endcase
+	end	    
+end
+
+always @(posedge clk or posedge reset) begin
+	if(reset) begin
+		record[0] <= 0; record[1] <= 0; record[2] <= 0;
+		record[3] <= 0; record[4] <= 0;
+	end else if(state == C1 && ~cycle_cnt) begin
+		record[0][ordered_index[0]] <= 1'b1; record[0][ordered_index[1]] <= 1'b1;
+		record[1][ordered_index[2]] <= 1'b1; record[2][ordered_index[3]] <= 1'b1;
+		record[3][ordered_index[4]] <= 1'b1; record[4][ordered_index[5]] <= 1'b1;
+	end else if(state >= C1) begin //C1-C4
+        case(cycle_cnt)
+            0 : begin //or
+                record[counter] <= record[counter] | record[counter - 1];
+            end
+            1 : begin //re-order
+                if(counter < 4 && ordered_value[counter + 2] < ordered_value[counter]) begin
+                    record[counter - 1] <= record[counter];
+                    record[counter] <= record[counter + 1];
+                    record[counter + 1] <= record[counter - 1];
+                end else if(counter < 5 && ordered_value[counter + 1] < ordered_value[counter]) begin
+                    record[counter] <= record[counter - 1];
+					record[counter - 1] <= record[counter];
+                end
+            end
+        endcase
+	end
+end
+
+always @(posedge clk or posedge reset) begin
+	if(reset) begin
+	    cycle_cnt <= 0;       
+	end else if(state > Order) begin
+	    cycle_cnt <= (cycle_cnt) ? 0 : cycle_cnt + 1;
+	end 
+end
+
+always @(posedge clk or posedge reset) begin
+    if(reset) begin
+    	HC1 <= 0; HC2 <= 0; HC3 <= 0; 
+    	HC4 <= 0; HC5 <= 0; HC6 <= 0;
+    end else if(state == C0 && cycle_cnt) begin
+        HC1 <= (ordered_index[0] == 0) ? {HC1,1'b1} :
+               (ordered_index[1] == 0) ? {HC1,1'b0} : HC1;
+        HC2 <= (ordered_index[0] == 1) ? {HC2,1'b1} :
+               (ordered_index[1] == 1) ? {HC2,1'b0} : HC2;
+        HC3 <= (ordered_index[0] == 2) ? {HC3,1'b1} :
+               (ordered_index[1] == 2) ? {HC3,1'b0} : HC3;
+        HC4 <= (ordered_index[0] == 3) ? {HC4,1'b1} :
+               (ordered_index[1] == 3) ? {HC4,1'b0} : HC4;
+        HC5 <= (ordered_index[0] == 4) ? {HC5,1'b1} :
+               (ordered_index[1] == 4) ? {HC5,1'b0} : HC5;
+        HC6 <= (ordered_index[0] == 5) ? {HC6,1'b1} :
+               (ordered_index[1] == 5) ? {HC6,1'b0} : HC6;
+    end else if(state == OutputCode) begin
+          case (M1) 
+            8'b00011111 : HC1 <= {3'd0,HC1[0],HC1[1],HC1[2],HC1[3],HC1[4]};
+            8'b00001111 : HC1 <= {4'd0,HC1[0],HC1[1],HC1[2],HC1[3]};
+            8'b00000111 : HC1 <= {5'd0,HC1[0],HC1[1],HC1[2]};
+            8'b00000011 : HC1 <= {6'd0,HC1[0],HC1[1]};
+            default : HC1 <= HC1;
+        endcase
+        case (M2) 
+            8'b00011111 : HC2 <= {3'd0,HC2[0],HC2[1],HC2[2],HC2[3],HC2[4]};
+            8'b00001111 : HC2 <= {4'd0,HC2[0],HC2[1],HC2[2],HC2[3]};
+            8'b00000111 : HC2 <= {5'd0,HC2[0],HC2[1],HC2[2]};
+            8'b00000011 : HC2 <= {6'd0,HC2[0],HC2[1]};
+            default : HC2 <= HC2;
+        endcase
+        case (M3) 
+            8'b00011111 : HC3 <= {3'd0,HC3[0],HC3[1],HC3[2],HC3[3],HC3[4]};
+            8'b00001111 : HC3 <= {4'd0,HC3[0],HC3[1],HC3[2],HC3[3]};
+            8'b00000111 : HC3 <= {5'd0,HC3[0],HC3[1],HC3[2]};
+            8'b00000011 : HC3 <= {6'd0,HC3[0],HC3[1]};
+            default : HC3 <= HC3;
+        endcase
+        case (M4) 
+            8'b00011111 : HC4 <= {3'd0,HC4[0],HC4[1],HC4[2],HC4[3],HC4[4]};
+            8'b00001111 : HC4 <= {4'd0,HC4[0],HC4[1],HC4[2],HC4[3]};
+            8'b00000111 : HC4 <= {5'd0,HC4[0],HC4[1],HC4[2]};
+            8'b00000011 : HC4 <= {6'd0,HC4[0],HC4[1]};
+            default : HC4 <= HC4;
+        endcase
+        case (M5) 
+            8'b00011111 : HC5 <= {3'd0,HC5[0],HC5[1],HC5[2],HC5[3],HC5[4]};
+            8'b00001111 : HC5 <= {4'd0,HC5[0],HC5[1],HC5[2],HC5[3]};
+            8'b00000111 : HC5 <= {5'd0,HC5[0],HC5[1],HC5[2]};
+            8'b00000011 : HC5 <= {6'd0,HC5[0],HC5[1]};
+            default : HC5 <= HC5;
+        endcase
+        case (M6) 
+            8'b00011111 : HC6 <= {3'd0,HC6[0],HC6[1],HC6[2],HC6[3],HC6[4]};
+            8'b00001111 : HC6 <= {4'd0,HC6[0],HC6[1],HC6[2],HC6[3]};
+            8'b00000111 : HC6 <= {5'd0,HC6[0],HC6[1],HC6[2]};
+            8'b00000011 : HC6 <= {6'd0,HC6[0],HC6[1]};
+            default : HC6 <= HC6;
+        endcase
+    end else if(state > C1 && ~cycle_cnt) begin
+        HC1 <= (record[counter][0] == 1'b1) ? {HC1,1'b0} : 
+               (record[counter-1][0] == 1'b1) ? {HC1,1'b1} : HC1;
+        HC2 <= (record[counter][1] == 1'b1) ? {HC2,1'b0} : 
+               (record[counter-1][1] == 1'b1) ? {HC2,1'b1} : HC2;
+        HC3 <= (record[counter][2] == 1'b1) ? {HC3,1'b0} : 
+               (record[counter-1][2] == 1'b1) ? {HC3,1'b1} : HC3;
+        HC4 <= (record[counter][3] == 1'b1) ? {HC4,1'b0} : 
+               (record[counter-1][3] == 1'b1) ? {HC4,1'b1} : HC4;
+        HC5 <= (record[counter][4] == 1'b1) ? {HC5,1'b0} : 
+               (record[counter-1][4] == 1'b1) ? {HC5,1'b1} : HC5;
+        HC6 <= (record[counter][5] == 1'b1) ? {HC6,1'b0} : 
+               (record[counter-1][5] == 1'b1) ? {HC6,1'b1} : HC6;
+    end
+end
+
+always @(posedge clk or posedge reset) begin
+    if(reset) begin
+        M1 <= 0; M2 <= 0; M3 <= 0;
+        M4 <= 0; M5 <= 0; M6 <= 0;
+    end else if(state == C0 && cycle_cnt) begin
+    	M1 <= (ordered_index[0] == 0 || ordered_index[1] == 0) ? {M1,1'b1} : M1;
+        M2 <= (ordered_index[0] == 1 || ordered_index[1] == 1) ? {M2,1'b1} : M2;
+        M3 <= (ordered_index[0] == 2 || ordered_index[1] == 2) ? {M3,1'b1} : M3;
+        M4 <= (ordered_index[0] == 3 || ordered_index[1] == 3) ? {M4,1'b1} : M4;
+        M5 <= (ordered_index[0] == 4 || ordered_index[1] == 4) ? {M5,1'b1} : M5;
+        M6 <= (ordered_index[0] == 5 || ordered_index[1] == 5) ? {M6,1'b1} : M6;
+    end else if(state > C1 && state < OutputCode && ~cycle_cnt ) begin
+        M1 <= (record[counter][0] == 1'b1 || record[counter - 1][0] == 1'b1) ? {M1,1'b1} : M1;
+        M2 <= (record[counter][1] == 1'b1 || record[counter - 1][1] == 1'b1) ? {M2,1'b1} : M2;
+        M3 <= (record[counter][2] == 1'b1 || record[counter - 1][2] == 1'b1) ? {M3,1'b1} : M3;
+        M4 <= (record[counter][3] == 1'b1 || record[counter - 1][3] == 1'b1) ? {M4,1'b1} : M4;
+        M5 <= (record[counter][4] == 1'b1 || record[counter - 1][4] == 1'b1) ? {M5,1'b1} : M5;
+        M6 <= (record[counter][5] == 1'b1 || record[counter - 1][5] == 1'b1) ? {M6,1'b1} : M6;
+    end
+end
+
+always @(posedge clk) begin
+    if(state == OutputCode) begin
+        code_valid <= 1'b1;
+    end else
+        code_valid <= 1'b0;
+end
+
+endmodule
+
+ 

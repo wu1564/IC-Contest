@@ -1,0 +1,127 @@
+module DT(
+	input 			clk, 
+	input			reset,
+	output	reg		done ,
+
+	output	reg		sti_rd ,
+	output	reg 	[9:0]	sti_addr ,
+	input	[15:0]	sti_di,
+
+	output	reg		res_wr ,
+	output	reg		res_rd ,
+	output	reg 	[13:0]	res_addr ,
+	output	reg 	[7:0]	res_do,
+	input	[7:0]	res_di
+);
+
+localparam Idle = 0,
+           Forward = 1,
+           Backward = 2;
+
+reg [1:0] temp;
+reg [2:0] state, next_state;
+reg [3:0] counter, cycle_cnt;
+reg [13:0] index_cnt, compare[0:5];
+wire period;
+
+always @(*) begin
+	case (state) 
+		Idle : next_state = (sti_addr == 1023 && counter == 15) ? Forward : Idle;
+		Forward : next_state = (res_addr == 16254) ? Backward : Forward;
+		default : next_state = Idle;
+	endcase
+end
+
+always @(*) begin
+	compare[0] = index_cnt - 129;//NW
+	compare[1] = index_cnt - 128;//N
+	compare[2] = index_cnt - 127;//Ne
+	compare[3] = index_cnt - 1;//W
+	compare[4] = index_cnt;//red
+	compare[5] = index_cnt;//red
+end
+
+always @(posedge clk or negedge reset) begin
+	if(~reset) begin
+		state = Idle;
+	end else
+		state <= next_state;
+end
+
+always @(posedge clk) begin
+	temp[0] <= reset;
+	temp[1] <= temp;
+end
+
+always @(posedge clk or negedge reset) begin
+	if(~reset) begin
+		sti_rd <= 1'b0;
+	end else if(temp[0] && ~temp[1]) begin
+		sti_rd <= 1'b1;
+	end else if(sti_addr == 1023 && counter == 15) begin
+		sti_rd <= 1'b0;
+	end
+end
+
+always @(posedge clk or negedge reset) begin
+    if(~reset) begin
+    	counter <= 0;
+    end else if(sti_rd) begin
+        counter <= (counter == 15) ? 0 : counter + 1;
+    end
+end
+
+always @(posedge clk or negedge reset) begin
+	if(~reset) begin
+		sti_addr <= 0;
+	end else if(sti_rd) begin
+		sti_addr <= (sti_addr == 1023) ? sti_addr : (counter == 15) ? sti_addr + 1 : sti_addr;
+	end
+end
+
+always @(posedge clk or negedge reset) begin
+	if(~reset) begin
+		res_rd <= 1'b0;
+		res_wr <= 1'b0;
+		res_addr <= 0;
+		res_do <= 0;
+	end else if(sti_rd) begin
+		res_wr <= 1'b1;
+		res_rd <= 1'b1;
+		res_addr <= sti_addr * 16 + counter;
+		res_do <= sti_di[counter];
+	end else if(state == Forward) begin
+		res_rd <= 1'b1;
+		res_wr <= period;
+		res_addr <= compare[cycle_cnt];
+	    case (period)
+	    	1'b0 : res_do <= (counter == 4) ? res_do : (res_di < res_do) ? res_di : res_do;
+	    	1'b1 : res_do <= (~res_di) ?  0 : (res_di < res_do) ? res_di + 1 : res_do + 1;
+	    endcase
+	end 
+end
+
+assign period = (cycle_cnt == 5) ? 1'b1 : 1'b0;
+
+always @(posedge clk or negedge reset) begin
+    if(~reset) begin
+    	cycle_cnt <= 0;
+    end else if(state == Forward) begin
+    	cycle_cnt <= (period) ? 0 : cycle_cnt + 1;
+    end
+end
+
+reg [6:0] cnt;
+always @(posedge clk or negedge reset) begin
+    if(~reset) begin
+    	index_cnt <= 129;
+    	cnt <= 0;
+    end else if(state == Forward) begin
+    	cnt <= (cnt == 126) ? 0 : (period) ? cnt + 1 : cnt;
+    	index_cnt <= (cnt == 126) ? index_cnt + 2 : (period) ? index_cnt + 1 : index_cnt;
+    end
+end
+
+
+endmodule
+ 
